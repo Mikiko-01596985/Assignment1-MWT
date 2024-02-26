@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Ongoing Courses
+
+  each course in ongoingCourses
+    .course
+      h2= course.name
+      p Department: #{course.department}
+      p Remaining Seats: #{course.remainingSeats}

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Students
+
+  each student in students
+    .student
+      h2= student.name
+      p Department: #{student.department}
+      p Semester: #{student.semester}

@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1 Filter Students
+  form(action="/filter-students", method="POST")
+    label(for="id") Student ID:
+    input(type="text", name="id")
+    br
+    label(for="name") Student Name:
+    input(type="text", name="name")
+    br
+    label(for="department") Department:
+    input(type="text", name="department")
+    br
+    label(for="enrolledCourse") Enrolled Course:
+    input(type="text", name="enrolledCourse")
+    br
+    label(for="completedCourses") Completed Courses:
+    input(type="text", name="completedCourses")
+    br
+    button(type="submit") Filter
+
+    each student in students
+      .student
+        h2= student.name
+        p ID: #{student.id}
+        p Department: #{student.department}
+        p Enrolled Course: #{student.coursesEnrolled}
+        p Completed Courses:
+          each course in student.coursesCompleted
+            li= course.name

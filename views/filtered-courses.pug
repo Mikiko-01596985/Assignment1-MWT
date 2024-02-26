@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1 Filter Ongoing Courses
+  form(action="/filter-courses", method="POST")
+    label(for="id") Course ID:
+    input(type="text", name="id")
+    br
+    label(for="name") Course Name:
+    input(type="text", name="name")
+    br
+    label(for="department") Department:
+    input(type="text", name="department")
+    br
+    label(for="open") Open:
+    input(type="checkbox", name="open")
+    br
+    button(type="submit") Filter
+
+    each course in ongoingCourses
+      .course
+      h2= course.name
+      p ID: #{course.id}
+      p Department: #{course.department}
+      p Remaining Seats: #{course.remainingSeats}
